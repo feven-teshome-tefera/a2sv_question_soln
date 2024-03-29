@@ -1,0 +1,10 @@
+    def arraySortedOrNot(self, arr, n):
+        r , l = 1 ,0
+        while r < n:
+            if arr[r] < arr[l]:
+               return 0
+            else:
+                r += 1
+                l += 1
+                continue
+        return 1
