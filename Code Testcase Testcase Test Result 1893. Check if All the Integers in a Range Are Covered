@@ -1,0 +1,14 @@
+class Solution(object):
+    def isCovered(self, ranges, left, right):
+        ranges_of_numbers = []
+        for i in ranges:
+            rangess = range(i[0],i[1]+1)
+            l = list(rangess)
+            ranges_of_numbers+=l
+        s= set(ranges_of_numbers)
+        for j in range(left,right+1):
+
+            if j not in ranges_of_numbers:
+                return False  
+        return True
+                
