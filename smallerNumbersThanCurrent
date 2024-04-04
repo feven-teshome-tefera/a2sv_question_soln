@@ -1,0 +1,17 @@
+class Solution(object):
+    def smallerNumbersThanCurrent(self, nums):
+        listt=nums[:]
+        listt.sort()
+        arr=[]
+        for i,num in enumerate(listt):
+            arr.append((num,i))
+        a=[]
+        for j,jj in enumerate(nums):
+            for k,kk in enumerate(arr):
+                if kk[0]==jj:
+                    a.append([nums[j],kk[1]])
+                    break
+        y=[]
+        for w,ww in enumerate(a):
+            y.append(ww[1])
+        return y
