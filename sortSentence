@@ -1,0 +1,17 @@
+class Solution:
+    def sortSentence(self, s: str) -> str:
+        kk = []
+        words = s.split()
+        for i in range(0,len(words)):
+            k = "".join(list(reversed(words[i])))
+            kk.append(k)
+        kk.sort()
+        w = []
+        for i in range(0,len(kk)):
+            gg = list(kk[i])
+            del(gg[0])
+            g =  "".join(list(reversed(gg)))
+            w.append(g)
+        h =  " ".join(w)
+        return h
+        
