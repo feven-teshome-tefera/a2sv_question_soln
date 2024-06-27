@@ -1,0 +1,33 @@
+from collections import Counter
+class Solution:
+    def findAnagrams(self, s: str, p: str) -> List[int]:
+        list_of_s =list(s)
+        splited_s = s[:len(p)]
+        list_of_p =list(p)
+        dic_of_P = Counter(p)
+        dic_of_s_lenofp = Counter(splited_s)
+        ans = []
+        for i in range(len(list_of_s)):
+            if i <len(s)-len(p):
+                if dic_of_P == dic_of_s_lenofp:
+                    ans.append(i)
+                    if dic_of_s_lenofp[list_of_s[i]]> 1:
+                        dic_of_s_lenofp[list_of_s[i]] -=1
+                        dic_of_s_lenofp[list_of_s[i+len(p)]]+=1
+                    else:
+                        del(dic_of_s_lenofp[list_of_s[i]])
+                        dic_of_s_lenofp[list_of_s[i+len(p)]]+=1
+                elif dic_of_P != dic_of_s_lenofp and i!= len(s)-len(p):
+                    if dic_of_s_lenofp[list_of_s[i]]> 1:
+                        dic_of_s_lenofp[list_of_s[i]] -=1
+                        dic_of_s_lenofp[list_of_s[i+len(p)]] +=1
+                    else:
+                        del(dic_of_s_lenofp[list_of_s[i]])
+                        dic_of_s_lenofp[list_of_s[i+len(p)]] +=1
+            elif i ==len(s)-len(p) and dic_of_P == dic_of_s_lenofp:
+                ans.append(i)
+
+        return ans
+
+
+        
